@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <title>Wormy38</title>
+    <style>
+	#myCanvas {
+		border: 2px solid black;
+		display: none;
+	}
+	#startButton, #muteButton, #snakeButton {
+		position: absolute;
+		padding: 20px;
+		font-size: 24px;
+	}
+	#startButton {
+		top: 70%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	#muteButton {
+		top: 10px;
+		right: 10px;
+	}
+	#snakeButton {
+		top: 80px;
+		right: 10px;
+	}
+	#title {
+		text-align: center;
+		font-size: 48px;
+		font-family: Arial;
+		margin-top: 5%;
+	}
+	#sub {
+		text-align: center;
+		font-size: 20px;
+		font-family: Arial;
+	}
+	.container {
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+	}
+	footer {
+		position: fixed;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		background-color: #f8f9fa;
+		color: lilac;
+		padding: 20px 0;
+		font-size: 32px;
+		font-family: Arial;
+		display: flex;
+		justify-content: center;
+	}
+	#footerText {
+		text-align: center;
+	}
+	#footerLinks {
+		margin: 0;
+		position: absolute;
+		right: 10px;
+		list-style-type: none;
+		text-align: right;
+		font-size: 14px;
+	}
+    </style>
+</head>
+
+<body>
+    <h1 id="title">
+        <img id="snakeImage" src="images/wormy38.png"></br>
+        Wormy38</h1>
+    <h3 id="sub">Help Nemz spend his donation and sub money on takeaways!</br>
+        </br>
+        Instructions:Use WASD or Arrow keys to move</br>
+        Toggle between <font color="#F091AD">wormy38</font> and <font color="green">snakey38</font> with the button on the right</h3>
+
+    <button id="startButton">Start Game</button>
+    <div class="container">
+        <canvas id="myCanvas" width="960" height="640"></canvas>
+    </div>
+    <button id="muteButton">Mute</button>
+    <button id="snakeButton">Worm</button>
+    <footer>
+        <div id="footerText">Made for the legion by
+            <font color="purple">undank</font>
+        </div>
+        <ul id="footerLinks">
+            <li><a href="https://undank.github.io/nemz38breaker/">nemz38breaker</a></li>
+            <li><a href="https://undank.github.io/nemz38clicker/">nemz38clicker</a></li>
+            <li><a href="https://undank.github.io/wormy38/">wormy38</a></li>
+        </ul>
+    </footer>
+    <script src="worm.js"></script>
+</body>
+</html>
