@@ -29,12 +29,15 @@ var foodImages = imageSources.map(loadImage);
 
 var gameStarted = false;
 var isSnake = false;
+let showGrid = false;
 
 //sounds
 var gameOverSounds = ['sounds/gameOverCook.mp3', 'sounds/gameOverEighty.mp3', 'sounds/gameOverEveryday.mp3'];
 var thankSounds = ['sounds/thanks1.ogg', 'sounds/thanks2.ogg','sounds/thanks3.ogg',];
 var foodSounds = ['sounds/bite1.ogg', 'sounds/bite2.ogg', 'sounds/bite3.ogg'];
+var mmmSounds = ['sounds/mmm1.ogg', 'sounds/mmm2.ogg', 'sounds/mmm3.ogg'];
 let isMuted = false;
+var isFoodSounds = true;
 
 // Event listeners
 document.getElementById('snakeButton').addEventListener('click', toggleSnakeWorm);
@@ -44,7 +47,11 @@ document.getElementById('muteButton').addEventListener('click', function() {
     isMuted = !isMuted;
     this.textContent = isMuted ? 'Unmute' : 'Mute';
 });
-
+document.getElementById('gridButton').addEventListener('click', function() {
+    showGrid = !showGrid;
+    this.textContent = showGrid ? 'Lines Off' : 'Lines On';
+});
+document.getElementById('soundButton').addEventListener('click', toggleSoundList);
 
 function loadImage(src) {
     var img = new Image();
@@ -181,8 +188,15 @@ function update() {
             }
 
             foodEaten = true;
-            var randomFoodSoundIndex = Math.floor(Math.random() * foodSounds.length);
-            playSound(foodSounds[randomFoodSoundIndex]);
+			if (isFoodSounds) {
+				randomSoundIndex = Math.floor(Math.random() * foodSounds.length);
+				playSound(foodSounds[randomSoundIndex]);
+			} else {
+				randomSoundIndex = Math.floor(Math.random() * mmmSounds.length);
+				playSound(mmmSounds[randomSoundIndex]);
+			}
+            //var randomFoodSoundIndex = Math.floor(Math.random() * foodSounds.length);
+            //playSound(foodSounds[randomFoodSoundIndex]);
             break;
         }
     }
@@ -209,6 +223,22 @@ function update() {
 function draw() {
     if (gameOver) return;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    if (showGrid) {
+        ctx.strokeStyle = 'rgba(0, 0, 0, 0.1)'; // this is a feint gray
+        for (let i = 0; i <= canvas.width; i += cellSize) {
+            ctx.beginPath();
+            ctx.moveTo(i, 0);
+            ctx.lineTo(i, canvas.height);
+            ctx.stroke();
+        }
+
+        for (let i = 0; i <= canvas.height; i += cellSize) {
+            ctx.beginPath();
+            ctx.moveTo(0, i);
+            ctx.lineTo(canvas.width, i);
+            ctx.stroke();
+        }
+    }
     ctx.fillStyle = 'green';
     ctx.font = '36px arial';
     ctx.fillText('HIGHEST BILL: ' + String.fromCharCode('163') + highScore + '0.00', 10, 50);
@@ -222,7 +252,7 @@ function draw() {
     }
 
     for (let i = 0; i < food.length; i++) {
-        ctx.drawImage(food[i].img, food[i].x - cellSize / 4, food[i].y - cellSize / 4, cellSize * 1.9, cellSize * 1.9);
+        ctx.drawImage(food[i].img, food[i].x - cellSize / 2, food[i].y - cellSize / 2, cellSize * 2, cellSize * 2);
     }
 }
 
@@ -277,10 +307,16 @@ function toggleSnakeWorm() {
     if (isSnake) {
         snakeImage.src = snakeImageSource;
         snakeButton.innerText = 'Worm';
-	snakeButton.style.backgroundColor = "#F091AD";
+		snakeButton.style.backgroundColor = "#F091AD";
     } else {
         snakeImage.src = wormImageSource;
         snakeButton.innerText = 'Snake';
-	snakeButton.style.backgroundColor = "green";
+		snakeButton.style.backgroundColor = "green";
     }
+}
+
+function toggleSoundList() {
+    isFoodSounds = !isFoodSounds;
+    var soundButton = document.getElementById('soundButton');
+    soundButton.innerText = isFoodSounds ? 'Sounds 1' : 'Sounds 2';
 }
