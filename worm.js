@@ -211,7 +211,7 @@ function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = 'green';
     ctx.font = '36px arial';
-    ctx.fillText('RECORD BILL: ' + String.fromCharCode('163') + highScore + '0.00', 10, 50);
+    ctx.fillText('HIGHEST BILL: ' + String.fromCharCode('163') + highScore + '0.00', 10, 50);
     ctx.fillStyle = 'blue';
     ctx.fillText('JUST EAT BILL: ' + String.fromCharCode('163') + score + '0.00', 10, 90);
     ctx.fillStyle = isSnake ? snakeColor : wormColor;
