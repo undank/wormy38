@@ -277,8 +277,10 @@ function toggleSnakeWorm() {
     if (isSnake) {
         snakeImage.src = snakeImageSource;
         snakeButton.innerText = 'Worm';
+	snakeButton.style.backgroundColor = "#F091AD";
     } else {
         snakeImage.src = wormImageSource;
         snakeButton.innerText = 'Snake';
+	snakeButton.style.backgroundColor = "green";
     }
 }
