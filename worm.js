@@ -52,6 +52,12 @@ document.getElementById('gridButton').addEventListener('click', function() {
     this.textContent = showGrid ? 'Lines Off' : 'Lines On';
 });
 document.getElementById('soundButton').addEventListener('click', toggleSoundList);
+document.getElementById('recipeButton').addEventListener('click', function() {
+    document.getElementById('dialog').style.display = 'block';
+});
+document.getElementById('closeDialog').addEventListener('click', function() {
+    document.getElementById('dialog').style.display = 'none';
+});
 
 function loadImage(src) {
     var img = new Image();
