@@ -9,7 +9,7 @@
 		border: 2px solid black;
 		display: none;
 	}
-	#startButton, #muteButton, #snakeButton, #gridButton, #soundButton {
+	#startButton, #muteButton, #snakeButton, #gridButton, #soundButton, #recipeButton {
 		position: absolute;
 		padding: 20px;
 		font-size: 24px;
@@ -35,6 +35,11 @@
 	#soundButton {
 		top: 250px;
 		right: 10px;
+	}
+	#recipeButton {
+		top: 330px;
+		right: 10px;
+		background-color:yellow;
 	}
 	#title {
 		text-align: center;
@@ -76,6 +81,18 @@
 		text-align: right;
 		font-size: 14px;
 	}
+	#dialog {
+		display: none; 
+		position: fixed; 
+		top: 50%; 
+		left: 50%; 
+		transform: translate(-50%, -50%); 
+		z-index: 999; 
+		background: yellow; 
+		padding: 20px; 
+		border: 1px solid black;
+		font-family: Arial;
+	}
     </style>
 </head>
 
@@ -96,6 +113,24 @@
     <button id="snakeButton">Worm</button>
 	<button id="gridButton">Lines On</button>
 	<button id="soundButton">Sounds 1</button>
+	<button id="recipeButton">Subway</button>
+	<div id="dialog">
+		<h2>Perfect Subway Sandwich Recipe</h2>
+		<p> 
+			- Italian Bread (Hearty if you want I don't because I don't want seeds I'm not gay)<br>
+			- Turkey Breast<br>
+			- Ham<br>
+			- Pepperjack Cheese<br>
+			- Toasted on the 6inch setting (say please, and make sure it's for 15s otherwise that shit will burn)<br>
+			- Lettuce<br>
+			- Red Onion<br>
+			- Sweetcorn<br>
+			- Jalepeno's in one half of the footlong (we don't want too much spice)<br>
+			- Southwest sauce (they like putting the whole fucking tub in say "that's perfect thanks" when it's a little<br><br>
+			Large cup please, fill it up with Coke/Pepsi and go home and enjoy the sandwich of your life
+		</p>
+		<div style="text-align: center;"><button id="closeDialog">Close</button></div>
+	</div>
     <footer>
         <div id="footerText">Made for the legion by
             <font color="purple">undank</font>
