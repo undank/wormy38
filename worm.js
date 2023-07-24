@@ -248,7 +248,7 @@ function draw() {
     snake.slice(1).forEach(cell => ctx.fillRect(cell.x, cell.y, cellSize, cellSize));
 
     if (snake[0]) {
-        ctx.drawImage(isSnake ? snakeHead : wormHead, snake[0].x - cellSize / 2, snake[0].y - cellSize / 2, cellSize * 2.3, cellSize * 2.3);
+        ctx.drawImage(isSnake ? snakeHead : wormHead, snake[0].x - cellSize / 1.5, snake[0].y - cellSize / 2, cellSize * 2.3, cellSize * 2.3);
     }
 
     for (let i = 0; i < food.length; i++) {
